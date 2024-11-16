@@ -1,0 +1,21 @@
+############################Comandos para cloud shell#################################
+
+################Crear la carpeta nueva
+
+mkdir cloudrunalloydb
+
+################Ingresar a la carpeta nueva
+
+cd cloudrunalloydb
+
+################Copiar previamente los archivos en la carpeta creada creada
+
+############################ Compilacion de contenedor#####################
+
+PROJECT_ID=$(gcloud config get-value project)
+echo $PROJECT_ID
+DOCKER_IMG="gcr.io/$PROJECT_ID/cloudrunalloydb"
+echo $DOCKER_IMG
+gcloud builds submit --tag $DOCKER_IMG .
+
+############################ Compilacion de contenedor#####################

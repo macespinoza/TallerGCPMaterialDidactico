@@ -1,0 +1,17 @@
+############################Comandos#################################
+
+############################ Compilacion de contenedor###########
+
+mkdir gcprunbase
+cd gcprunbase
+
+PROJECT_ID=$(gcloud config get-value project)
+echo $PROJECT_ID
+DOCKER_IMG="gcr.io/$PROJECT_ID/cloudstorage"
+echo $DOCKER_IMG
+gcloud builds submit --tag $DOCKER_IMG .
+
+gcloud container images list
+
+############################ Compilacion de contenedor###########
+
